@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckieiu0etwr4p"]
+
+[ext_resource type="Script" path="res://ice.gd" id="1_ojhiw"]
+[ext_resource type="Texture2D" uid="uid://cnxroxpufw4ol" path="res://ice_spear.png" id="2_3ie4o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opr3l"]
+size = Vector2(7.77818, 32.9307)
+
+[node name="IceSpear" type="Area2D" groups=["attack"]]
+script = ExtResource("1_ojhiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0.607234, -0.892767)
+rotation = -0.785398
+shape = SubResource("RectangleShape2D_opr3l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3ie4o")
+
+[node name="Timer" type="Timer" parent="."]

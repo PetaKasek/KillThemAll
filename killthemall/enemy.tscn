@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://3qncw27o5x4a"]
+
+[sub_resource type="GDScript" id="GDScript_gtx8d"]
+script/source = "extends CharacterBody2D
+
+@export var movement_speed: float = 20.0  
+
+@onready var player = get_tree().get_first_node_in_group(\"Player\")
+@onready var sprite = $Sprite2D
+
+func _physics_process(_delta: float) -> void:
+	if player:  
+		var direction = global_position.direction_to(player.global_position)
+		velocity = direction * movement_speed
+		move_and_slide()
+
+		
+		if direction.x > 0.1:
+			sprite.flip_h = true
+		elif direction.x < -0.1:
+			sprite.flip_h = false
+"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cifu"]
+load_path = "res://.godot/imported/kolbold_weak.png-96dfb471f90e3ad2dcc0e9f532a6ef48.ctex"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5mjy7"]
+radius = 5.0
+height = 16.0
+
+[node name="Enemy_weak" type="CharacterBody2D"]
+motion_mode = 1
+script = SubResource("GDScript_gtx8d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_8cifu")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 3)
+shape = SubResource("CapsuleShape2D_5mjy7")

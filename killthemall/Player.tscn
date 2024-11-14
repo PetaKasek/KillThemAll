@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjicm32yhk353"]
+
+[ext_resource type="Texture2D" uid="uid://3m1huvmax77a" path="res://modern-abstract-grid-background-template-black-and-white-square-grid-design-vector.jpg" id="1_to4lv"]
+[ext_resource type="PackedScene" uid="uid://bpqv7u76hrpdp" path="res://Player1.tscn" id="2_bptjt"]
+[ext_resource type="PackedScene" uid="uid://cdpdloxyq335b" path="res://EnemyWeak.tscn" id="3_gbjum"]
+
+[node name="World" type="Node2D"]
+position = Vector2(190, 269)
+
+[node name="BackGround" type="Sprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-1.52588e-05, -3.00003)
+scale = Vector2(1, 0.996939)
+texture = ExtResource("1_to4lv")
+region_enabled = true
+region_rect = Rect2(0, 0, 4000, 4000)
+
+[node name="Player" parent="." instance=ExtResource("2_bptjt")]
+position = Vector2(-42, -17)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_gbjum")]
