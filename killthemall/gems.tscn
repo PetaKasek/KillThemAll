@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://wyjxscajd8uf"]
+
+[ext_resource type="PackedScene" uid="uid://d20r3gqas2kms" path="res://Objects/experience_gem.tscn" id="1_jyv7f"]
+
+[node name="Gems" type="Node2D"]
+
+[node name="ExperienceGem" parent="." instance=ExtResource("1_jyv7f")]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://sl0cgglcqsc5"]
+
+[ext_resource type="PackedScene" uid="uid://du6qbgqucaqov" path="res://World/world.tscn" id="1_63khi"]
+[ext_resource type="PackedScene" path="res://basic_button.tscn" id="2_q27n2"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_63khi")]
+
+[node name="Button" parent="." instance=ExtResource("2_q27n2")]
+offset_left = -95.0
+offset_top = 10.0
+offset_right = -4.0
+offset_bottom = 46.0
+script = null

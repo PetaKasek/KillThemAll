@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm0hxa0fy2kj8"]
+
+[ext_resource type="PackedScene" uid="uid://ba2claihwes2y" path="res://enemy_spawner.tscn" id="1_pxib5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="EnemySpawner" parent="." instance=ExtResource("1_pxib5")]
+spawns = null
+time = null

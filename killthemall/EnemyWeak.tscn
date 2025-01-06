@@ -1,19 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdpdloxyq335b"]
+[gd_scene load_steps=7 format=3 uid="uid://c74q5umv6nlhg"]
 
-[ext_resource type="Script" path="res://EnemyWeak.gd" id="1_kdfb7"]
-[ext_resource type="Texture2D" uid="uid://dnggtuq3xigx5" path="res://World/kolbold_weak.png" id="2_p6n5r"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="1_nd4c6"]
+[ext_resource type="PackedScene" uid="uid://gvm5jcbbgwdv" path="res://Enemy/enemy_kobold_weak.tscn" id="2_x3lok"]
+[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Audio/SoundEffect/enemy_hit.ogg" id="3_40um7"]
+[ext_resource type="Script" path="res://spawner.gd" id="3_bcl6w"]
+[ext_resource type="AudioStream" uid="uid://bkehg6pw6gs2h" path="res://Audio/SoundEffect/enemy_death.ogg" id="4_hobql"]
+[ext_resource type="Script" path="res://World/spawn_info.gd" id="4_o2y8n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5e3ua"]
-radius = 4.0
-height = 16.0
+[node name="Enemy" type="Node2D"]
+position = Vector2(-1, -6)
+script = ExtResource("3_bcl6w")
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_kdfb7")
+[node name="enemy_kobold_weak" parent="." instance=ExtResource("2_x3lok")]
+script = ExtResource("1_nd4c6")
+spawns = Array[ExtResource("4_o2y8n")]([])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_p6n5r")
-hframes = 2
+[node name="EnemyHit" type="AudioStreamPlayer" parent="enemy_kobold_weak"]
+stream = ExtResource("3_40um7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 3)
-shape = SubResource("CapsuleShape2D_5e3ua")
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="enemy_kobold_weak"]
+stream = ExtResource("4_hobql")
